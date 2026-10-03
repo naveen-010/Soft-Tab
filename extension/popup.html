@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soft-Tab</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="icon.png" width="36" height="36" alt="">
+      <div><h1>Soft-Tab</h1><p>A moment to change your mind.</p></div>
+    </header>
+
+    <div class="actions">
+      <button id="undo" class="primary" disabled>Undo last soft close</button>
+      <button id="soft-close">Soft close current tab</button>
+    </div>
+    <p class="shortcut"><kbd>Ctrl W</kbd> soft close <span>·</span> <kbd>Alt Shift W</kbd> undo</p>
+
+    <div id="error" role="alert" hidden>
+      <p id="error-text"></p>
+      <button id="dismiss-error" class="text-button">Dismiss</button>
+    </div>
+
+    <section aria-labelledby="holding-heading">
+      <div class="section-heading"><h2 id="holding-heading">Still here</h2><span id="count">0 tabs</span></div>
+      <p id="empty">Soft-closed tabs wait here before closing for real.</p>
+      <ul id="tabs"></ul>
+    </section>
+
+    <form id="delay-form">
+      <label for="delay">Keep tabs alive for</label>
+      <div class="delay-input">
+        <input id="delay" type="number" min="5" max="3600" step="1" value="60" required>
+        <span>seconds</span>
+        <button type="submit">Save</button>
+      </div>
+      <p id="save-status" role="status">Applies to the next soft close.</p>
+    </form>
+
+    <details id="setup">
+      <summary>Set up Ctrl W first</summary>
+      <p><strong>Until you unbind Firefox’s shortcut, Ctrl W can close your tab normally.</strong> Soft-Tab does not check your shortcut setup.</p>
+      <ol>
+        <li>Open <code>about:keyboard</code>, find <strong>Close Tab</strong>, and clear or change <kbd>Ctrl W</kbd>.</li>
+        <li>Open <code>about:addons</code> → gear menu → <strong>Manage Extension Shortcuts</strong>. Under Soft-Tab, assign <kbd>Ctrl W</kbd> to “Soft close the current tab” if needed.</li>
+        <li>Use <kbd>Alt Shift W</kbd> to undo, or click a tab above. You can change the undo shortcut there too.</li>
+      </ol>
+      <button id="open-shortcuts">Open extension shortcuts</button>
+      <p class="note">On Mac, use Cmd W. In Zen, unbind Close Tab under Settings → Keyboard Shortcuts.</p>
+    </details>
+    <footer>
+      <p>Hidden tabs stay live and skip Ctrl Tab. Pinned and actively sharing tabs stay open. The × button and closing the window still close tabs normally.</p>
+      <p>No page contents are read or saved. A browser restart cannot preserve a live session.</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Soft-Tab",
+  "version": "1.0.0",
+  "description": "Soft close a tab, keep its live page for a minute, and undo without reloading.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "soft-tab-447fe68d-3fe1-4f95-9a46-bf6ce9124d11@local.extension",
+      "strict_min_version": "147.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": ["tabs", "tabHide", "alarms", "storage", "sessions"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Soft-Tab",
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "96": "icon.png"
+  },
+  "commands": {
+    "soft-close": {
+      "suggested_key": {
+        "default": "Ctrl+W",
+        "mac": "Command+W"
+      },
+      "description": "Soft close the current tab"
+    },
+    "undo-soft-close": {
+      "suggested_key": {
+        "default": "Alt+Shift+W"
+      },
+      "description": "Restore the last soft-closed tab in this window"
+    }
+  },
+  "options_ui": {
+    "page": "popup.html",
+    "open_in_tab": true
+  }
+}
