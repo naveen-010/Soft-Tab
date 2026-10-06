@@ -11,6 +11,7 @@ The extension is useful for the case when you mistakenly closes a tab and restor
 
 Protection applies to the shortcut command only. Clicking a tab’s ×, closing the window, browser restarts, crashes, and page reloads are outside its protection. Hidden pages remain active for grace period; they are not frozen.
 
+[Soft Tab Firefox Addon](https://addons.mozilla.org/en-US/firefox/addon/soft-tab/)
 
 ## Load it in Firefox
 
